@@ -20,3 +20,12 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.mainContent {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  height: 35vh;
+}
