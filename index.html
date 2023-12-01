@@ -4,18 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz Game</title>
+
+    <!-- Link to the external stylesheet for styling. -->
     <link rel="stylesheet" href="assets/style.css" />
   </head>
+
   <body>
+    <!-- Wrapper div for structuring the content. -->
     <div id="wrapper" class="wrapper">
+      <!-- Top bar containing links and a timer display. -->
       <div id="topBar" class="topBar">
+        <!-- Link to view highscores. -->
         <a href="#">View Highscores</a>
+        <!-- Display the timer with an initial value of 0. -->
         <p>Time: <span>0</span></p>
       </div>
 
-      <div id="mainContent" class="mainContent"></div>
+      <!-- Main content section with a title, description, and start button. -->
+      <div id="mainContent" class="mainContent">
+        <h1>Coding Quiz Challenge!</h1>
+        <!-- Instructional paragraph for the quiz. -->
+        <p>
+          Try to answer the following code-related questions within the given
+          time limit. Keep in mind that incorrect guesses will penalize your
+          screentime by 10 seconds!
+        </p>
+        <br />
+
+        <!-- Button to start the quiz. -->
+        <button id="startQuiz">Start Quiz</button>
+      </div>
     </div>
 
+    <!-- Include the JavaScript file for interactive functionality. -->
     <script src="assets/script.js"></script>
   </body>
 </html>
