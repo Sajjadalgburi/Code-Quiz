@@ -27,5 +27,16 @@ body {
   flex-direction: column;
   justify-content: center;
   max-width: 500px;
-  height: 35vh;
+  height: 45vh;
+}
+
+.mainContent h1 {
+  font-size: 2.7em;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+.mainContent h1,
+.mainContent p {
+  text-align: center;
 }
