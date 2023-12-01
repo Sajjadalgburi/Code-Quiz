@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+:root {
+  --primary-color: #fff;
+  --background-color: #66416e;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +13,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: darkgray;
+  background-color: var(--background-color);
 }
 
 .wrapper {
@@ -19,11 +24,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--primary-color);
 }
 
 .topBar a {
   text-decoration: none;
-  color: white;
+  color: var(--primary-color);
 }
 
 .mainContent {
@@ -33,12 +39,17 @@ body {
   justify-content: center;
   max-width: 500px;
   height: 45vh;
+  color: var(--primary-color);
 }
 
 .mainContent h1 {
-  font-size: 2.7em;
+  font-size: 3em;
   font-weight: bold;
   margin-bottom: 22px;
+}
+
+.mainContent p {
+  font-size: 16px;
 }
 
 .mainContent h1,
@@ -52,7 +63,7 @@ body {
   border: none;
   border-radius: 5px;
   background-color: #2196f3;
-  color: white;
+  color: var(--primary-color);
   font-size: 15px;
   cursor: pointer;
   width: 25%;
