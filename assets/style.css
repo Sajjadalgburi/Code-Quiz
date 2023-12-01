@@ -21,6 +21,11 @@ body {
   align-items: center;
 }
 
+.topBar a {
+  text-decoration: none;
+  color: white;
+}
+
 .mainContent {
   display: flex;
   margin: auto;
@@ -39,4 +44,17 @@ body {
 .mainContent h1,
 .mainContent p {
   text-align: center;
+}
+
+#startQuiz {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  width: 25%;
+  align-self: center; /* Center-align the button within mainContent */
 }
