@@ -1,25 +1,31 @@
+/* Importing Roboto font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+/* Setting custom color variables for primary and background colors */
 :root {
   --primary-color: #fff;
   --background-color: #66416e;
 }
 
+/* Resetting default margin, padding, and box-sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Styling the overall body with the Roboto font and background color */
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--background-color);
 }
 
+/* Adding padding to the wrapper element */
 .wrapper {
   padding: 25px;
 }
 
+/* Styling the top bar with flex properties and custom color */
 .topBar {
   display: flex;
   justify-content: space-between;
@@ -27,11 +33,13 @@ body {
   color: var(--primary-color);
 }
 
+/* Styling anchor elements within the top bar */
 .topBar a {
   text-decoration: none;
   color: var(--primary-color);
 }
 
+/* Styling the main content with flex properties, custom color, and max-width */
 .mainContent {
   display: flex;
   margin: auto;
@@ -42,21 +50,25 @@ body {
   color: var(--primary-color);
 }
 
+/* Styling the main content heading with font size, weight, and margin */
 .mainContent h1 {
   font-size: 3em;
   font-weight: bold;
   margin-bottom: 22px;
 }
 
+/* Styling paragraphs within the main content with font size */
 .mainContent p {
   font-size: 16px;
 }
 
+/* Center-aligning heading and paragraphs within the main content */
 .mainContent h1,
 .mainContent p {
   text-align: center;
 }
 
+/* Styling the startQuiz button with margin, padding, border, border-radius, color, and cursor */
 #startQuiz {
   margin-top: 10px;
   padding: 10px;
