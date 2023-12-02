@@ -20,6 +20,12 @@ body {
   background-color: var(--background-color);
 }
 
+/* 
+
+First Phase of the Website
+
+*/
+
 /* Adding padding to the wrapper element */
 .wrapper {
   padding: 25px;
@@ -80,4 +86,30 @@ body {
   cursor: pointer;
   width: 25%;
   align-self: center; /* Center-align the button within mainContent */
+}
+
+/* 
+
+Seccond Phase of the Website
+
+*/
+
+.mainContent {
+  display: none;
+}
+
+/* Adjusting the center alignment for the second phase */
+.seccondPhase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 50vh;
+  color: var(--primary-color);
+}
+
+/* Removing the list style for the second phase */
+.seccondPhase ul {
+  list-style-type: none;
 }

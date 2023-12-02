@@ -14,6 +14,7 @@ startQuiz.addEventListener("click", function () {
 });
 
 // Function to handle the countdown timer
+
 function countDown(duration) {
   let timer = duration;
   countdown = setInterval(function () {
