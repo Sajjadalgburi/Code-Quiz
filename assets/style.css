@@ -108,7 +108,7 @@ body {
 }
 
 /* Removing the list style for the second phase */
-.seccondPhase ul {
+.answerButtons {
   position: relative;
   margin-top: 1.8em;
   list-style-type: none;
@@ -116,14 +116,16 @@ body {
   width: 110px;
 }
 
-.seccondPhase li {
-  font-size: 16px;
-  margin-bottom: 10px;
-  text-align: left;
-  background-color: white;
-  color: black;
-  padding: 8px;
-  text-align: center;
+.answerButtons button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: var(--primary-color);
+  font-size: 15px;
+  cursor: pointer;
+  margin: 6px;
 }
 
 .seccondPhase {
