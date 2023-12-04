@@ -5,13 +5,17 @@ const startQuiz = document.getElementById("startQuiz"); // Start quiz button ele
 const timerText = document.getElementById("timer"); // Timer text element
 const seccondPhase = document.getElementById("seccondPhase"); // Second phase element
 const thirdPhase = document.getElementById("thirdPhase"); // Third phase element
-const questions = document.getElementById("questions"); // Questions ul for the quiz
+const questions = document.getElementById("answerButtons"); // Questions ul for the quiz
 const initialsInput = document.getElementById("initialsInput"); // Initials input element
 const submitInitials = document.getElementById("submitInitials"); // Submit initial
+const goBack = document.getElementById("goBack"); // Go back button element
+const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
 var incorrectAnswer; // Declare incorrectAnswer variable globally to store incorrect answers
+let currentQuestionIndex = 0; // Declare currentQuestionIndex variable to store the current question index
+let score = 0; // Declare score variable to store the score of the quiz
 
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
