@@ -16,6 +16,7 @@ var incorrectAnswer; // Declare incorrectAnswer variable globally to store incor
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
   countDown(75); // Start the timer with a duration of 75 seconds
+  displayPhase2(); // Display the second phase
 });
 
 // Function to handle the countdown timer
@@ -32,4 +33,9 @@ function countDown(duration) {
       timerText.textContent = "Time's up!"; // Display a message when time is up
     }
   }, 1000); // Update every 1000 milliseconds (1 second)
+}
+
+function displayPhase2() {
+  mainContent.setAttribute("style", "display: none;"); // Hide the main content
+  seccondPhase.setAttribute("style", "display: flex;"); // Display the second phase
 }
