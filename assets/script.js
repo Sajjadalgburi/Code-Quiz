@@ -3,6 +3,11 @@ const topBar = document.getElementById("topBar"); // Top bar element
 const mainContent = document.getElementById("mainContent"); // Main content element
 const startQuiz = document.getElementById("startQuiz"); // Start quiz button element
 const timerText = document.getElementById("timer"); // Timer text element
+const seccondPhase = document.getElementById("seccondPhase"); // Second phase element
+const thirdPhase = document.getElementById("thirdPhase"); // Third phase element
+const questions = document.getElementById("questions"); // Questions ul for the quiz
+const initialsInput = document.getElementById("initialsInput"); // Initials input element
+const submitInitials = document.getElementById("submitInitials"); // Submit initial
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
