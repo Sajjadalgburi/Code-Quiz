@@ -20,11 +20,7 @@ body {
   background-color: var(--background-color);
 }
 
-/* 
-
-First Phase of the Website
-
-*/
+/* First Phase of the Website */
 
 /* Adding padding to the wrapper element */
 .wrapper {
@@ -88,11 +84,7 @@ First Phase of the Website
   align-self: center; /* Center-align the button within mainContent */
 }
 
-/* 
-
-Seccond Phase of the Website
-
-*/
+/* Second Phase of the Website */
 
 .mainContent {
   display: none;
@@ -137,6 +129,8 @@ Seccond Phase of the Website
   display: none;
 }
 
+/* Third Phase of the Website */
+
 .thirdPhase {
   display: flex;
   flex-direction: column;
@@ -156,6 +150,7 @@ Seccond Phase of the Website
   margin-top: 15px;
 }
 
+/* Styling the submitInitials button */
 #submitInitials {
   padding: 6px; /* Reduced padding */
   border: none;
