@@ -42,4 +42,25 @@ function countDown(duration) {
 function displayPhase2() {
   mainContent.setAttribute("style", "display: none;"); // Hide the main content
   seccondPhase.setAttribute("style", "display: flex;"); // Display the second phase
+
+  let h2El = document.createElement("h2"); // <h2></h2>
+  h2El.innerHTML = "Question 1"; // <h2>Question 1</h2>
+
+  let div = document.createElement("div"); // <div> </div>
+  div.setAttribute("id", "answerButtons"); // <div id = "answerButtons"> </div>
+  div.setAttribute("class", "answerButtons"); // <div id="answerButtons" class="answerButtons"> </div>
+
+  for (let i = 0; i < 4; i++) {
+    let button = document.createElement("button"); // <button></button>
+    button.innerHTML = "answer " + i; // <button>answer 1</button>
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log(event.target.innerHTML);
+      // if statment
+    });
+    div.append(button); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
+  }
+
+  seccondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
+  seccondPhase.append(div);
 }
