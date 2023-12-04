@@ -86,10 +86,6 @@ body {
 
 /* Second Phase of the Website */
 
-.mainContent {
-  display: none;
-}
-
 /* Adjusting the center alignment for the second phase */
 .seccondPhase {
   display: flex;
@@ -127,10 +123,6 @@ body {
   margin: 6px;
 }
 
-.seccondPhase {
-  display: none;
-}
-
 /* Third Phase of the Website */
 
 .thirdPhase {
@@ -164,10 +156,6 @@ body {
   width: 80px; /* Reduced width */
   height: 24px; /* Reduced height */
   margin: auto; /* Center-align the button within its parent container */
-}
-
-.thirdPhase {
-  display: none;
 }
 
 .lastPhase {
@@ -210,4 +198,11 @@ body {
   cursor: pointer;
   margin: 10px;
   align-self: center;
+}
+
+/* Hide previous displays */
+.thirdPhase,
+.lastPhase,
+.seccondPhase {
+  display: none;
 }
