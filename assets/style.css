@@ -169,3 +169,32 @@ body {
 .thirdPhase {
   display: none;
 }
+
+.lastPhase {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+  height: 50vh;
+  margin-top: 100px;
+}
+
+.lastPhase h2 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--primary-color);
+  margin: 10px;
+}
+
+.lastPhase input {
+  pointer-events: none;
+  width: 30%;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-size: 15px;
+  margin: 10px;
+}
