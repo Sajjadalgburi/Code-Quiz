@@ -187,7 +187,7 @@ body {
   margin: 10px;
 }
 
-.lastPhase input {
+.uneditable {
   pointer-events: none;
   width: 30%;
   height: 30px;
@@ -197,4 +197,18 @@ body {
   color: black;
   font-size: 15px;
   margin: 10px;
+}
+
+.lastPhase button {
+  width: 15%;
+  height: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: var(--primary-color);
+  font-size: 15px;
+  cursor: pointer;
+  margin: 10px;
+  align-self: center;
 }
