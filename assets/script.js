@@ -22,6 +22,7 @@ let currentQuestionIndex = 0; // Declare currentQuestionIndex variable to store 
 let score = 0; // Declare score variable to store the score of the quiz
 
 let questionNumber = 0;
+let timer; // Initialize the timer variable
 
 const quizQuestions = [
   {
@@ -129,7 +130,7 @@ const quizQuestions = [
 
 // Function to handle the countdown timer
 function countDown(duration, onTimerEnd) {
-  let timer = duration;
+  timer = duration; // Reference the global timer variable
   countdown = setInterval(function () {
     timerText.textContent = timer; // Update the timer text content
     timer--;
@@ -209,34 +210,9 @@ function displayPhase2() {
   secondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
-// function displayPhase3() {
-//   thirdPhase.setAttribute("style", "display: flex;"); // Display the third phase
-//   seccondPhase.innerHTML = "";
-// }
-
-// function insertValidation() {
-//   if (selectedAns === correctAnswer) {
-//     var lineBreak = document.createElement("hr");
-//     var correct = document.createElement("p");
-//     correct.innerHTML = "Correct!";
-//     correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-//     correctInccorectAnsCheck.append(correct);
-//     seccondPhase.append(lineBreak);
-//     seccondPhase.append(correct);
-//   } else {
-//     var lineBreak = document.createElement("hr");
-//     var incorrect = document.createElement("p");
-//     incorrect.innerHTML = "Wrong!";
-//     correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-//     correctInccorectAnsCheck.append(incorrect);
-//     seccondPhase.append(lineBreak);
-//     seccondPhase.append(incorrect);
-//   }
-// }
-
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
-  countDown(75, handleWrongAnswer); // Pass the handleWrongAnswer callback
+  timer = 75; // Initialize the timer before starting the countdown
+  countDown(timer, handleWrongAnswer); // Pass the handleWrongAnswer callback
   displayPhase2();
-  // displayPhase3(); // This function is commented out in your code
 });
