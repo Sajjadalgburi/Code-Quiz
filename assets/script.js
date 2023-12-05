@@ -170,8 +170,12 @@ function displayPhase2() {
   let choices = quizQuestions[questionNumber].choices;
 
   let lineBreak = document.createElement("hr");
+
   let correct = document.createElement("p");
+  correct.innerHTML = "Correct!";
+
   let incorrect = document.createElement("p");
+  incorrect.innerHTML = "Wrong!";
 
   for (let i = 0; i < choices.length; i++) {
     let button = document.createElement("button"); // <button></button>
@@ -182,20 +186,14 @@ function displayPhase2() {
       // if statment
       let correctAnswer = quizQuestions[questionNumber].answer;
       if (selectedAns === correctAnswer) {
-        correct.innerHTML = "Correct!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(correct);
-        secondPhase.append(lineBreak);
-        secondPhase.append(correct);
         score++;
         questionNumber += 1;
         displayPhase2();
       } else {
-        incorrect.innerHTML = "Wrong!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(incorrect);
-        secondPhase.append(lineBreak);
-        secondPhase.append(incorrect);
         handleWrongAnswer();
         questionNumber += 1;
         displayPhase2();
