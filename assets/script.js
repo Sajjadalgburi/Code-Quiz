@@ -168,20 +168,20 @@ function displayPhase2() {
   div.setAttribute("class", "answerButtons"); // <div id="answerButtons" class="answerButtons"> </div>
 
   let choices = quizQuestions[questionNumber].choices;
-  // console.log(choices);
+
+  let lineBreak = document.createElement("hr");
+  let correct = document.createElement("p");
+  let incorrect = document.createElement("p");
 
   for (let i = 0; i < choices.length; i++) {
     let button = document.createElement("button"); // <button></button>
     button.innerHTML = choices[i]; // <button>answer 1</button>
     button.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log(event.target.innerHTML);
       let selectedAns = event.target.innerHTML;
       // if statment
       let correctAnswer = quizQuestions[questionNumber].answer;
       if (selectedAns === correctAnswer) {
-        var lineBreak = document.createElement("hr");
-        var correct = document.createElement("p");
         correct.innerHTML = "Correct!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(correct);
@@ -191,8 +191,6 @@ function displayPhase2() {
         questionNumber += 1;
         displayPhase2();
       } else {
-        var lineBreak = document.createElement("hr");
-        var incorrect = document.createElement("p");
         incorrect.innerHTML = "Wrong!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(incorrect);
