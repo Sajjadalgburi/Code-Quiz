@@ -11,8 +11,8 @@ const submitInitials = document.getElementById("submitInitials"); // Submit init
 const goBack = document.getElementById("goBack"); // Go back button element
 const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
 const finalScore = document.getElementById("finalScore");
-const correctInccorectAnsCheck = document.getElementById(
-  "correct-inccorectAnsCheck"
+const correctIncorrectAnsCheck = document.getElementById(
+  "correct-incorrectAnsCheck"
 );
 
 let countdown; // Declare countdown variable globally for the timer
@@ -171,8 +171,8 @@ function displayPhase2() {
         var lineBreak = document.createElement("hr");
         var correct = document.createElement("p");
         correct.innerHTML = "Correct!";
-        correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-        correctInccorectAnsCheck.append(correct);
+        correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        correctIncorrectAnsCheck.append(correct);
         seccondPhase.append(lineBreak);
         seccondPhase.append(correct);
         questionNumber += 1;
@@ -182,8 +182,8 @@ function displayPhase2() {
         var lineBreak = document.createElement("hr");
         var incorrect = document.createElement("p");
         incorrect.innerHTML = "Wrong!";
-        correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-        correctInccorectAnsCheck.append(incorrect);
+        correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        correctIncorrectAnsCheck.append(incorrect);
         seccondPhase.append(lineBreak);
         seccondPhase.append(incorrect);
         questionNumber += 1;
