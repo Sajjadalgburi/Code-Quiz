@@ -10,6 +10,7 @@ const initialsInput = document.getElementById("initialsInput"); // Initials inpu
 const submitInitials = document.getElementById("submitInitials"); // Submit initial
 const goBack = document.getElementById("goBack"); // Go back button element
 const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
+const finalScore = document.getElementById("finalScore");
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
@@ -123,14 +124,7 @@ const quizQuestions = [
   },
 ];
 
-// Event listener for the "Start Quiz" button
-startQuiz.addEventListener("click", function () {
-  countDown(75); // Start the timer with a duration of 75 seconds
-  displayPhase2(); // Display the second phase
-});
-
 // Function to handle the countdown timer
-
 function countDown(duration) {
   let timer = duration;
   countdown = setInterval(function () {
@@ -187,3 +181,15 @@ function displayPhase2() {
   seccondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
   seccondPhase.append(div);
 }
+
+// function displayPhase3() {
+//   thirdPhase.setAttribute("style", "display: flex;"); // Display the third phase
+//   seccondPhase.innerHTML = "";
+// }
+
+// Event listener for the "Start Quiz" button
+startQuiz.addEventListener("click", function () {
+  countDown(75); // Start the timer with a duration of 75 seconds
+  displayPhase2(); // Display the second phase
+  displayPhase3();
+});
