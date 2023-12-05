@@ -11,6 +11,9 @@ const submitInitials = document.getElementById("submitInitials"); // Submit init
 const goBack = document.getElementById("goBack"); // Go back button element
 const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
 const finalScore = document.getElementById("finalScore");
+const correctInccorectAnsCheck = document.getElementById(
+  "correct-inccorectAnsCheck"
+);
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
@@ -153,7 +156,7 @@ function displayPhase2() {
   div.setAttribute("class", "answerButtons"); // <div id="answerButtons" class="answerButtons"> </div>
 
   let choices = quizQuestions[questionNumber].choices;
-  console.log(choices);
+  // console.log(choices);
 
   for (let i = 0; i < choices.length; i++) {
     let button = document.createElement("button"); // <button></button>
@@ -165,26 +168,58 @@ function displayPhase2() {
       // if statment
       let correctAnswer = quizQuestions[questionNumber].answer;
       if (selectedAns === correctAnswer) {
-        alert("correct answer");
+        var lineBreak = document.createElement("hr");
+        var correct = document.createElement("p");
+        correct.innerHTML = "Correct!";
+        correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        correctInccorectAnsCheck.append(correct);
+        seccondPhase.append(lineBreak);
+        seccondPhase.append(correct);
         questionNumber += 1;
         score++;
         displayPhase2();
       } else {
-        alert("inccorect");
+        var lineBreak = document.createElement("hr");
+        var incorrect = document.createElement("p");
+        incorrect.innerHTML = "Wrong!";
+        correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        correctInccorectAnsCheck.append(incorrect);
+        seccondPhase.append(lineBreak);
+        seccondPhase.append(incorrect);
         questionNumber += 1;
         displayPhase2();
       }
     });
-    div.append(button); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
+    div.append(button);
   }
 
   seccondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
-  seccondPhase.append(div);
+  seccondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
 // function displayPhase3() {
 //   thirdPhase.setAttribute("style", "display: flex;"); // Display the third phase
 //   seccondPhase.innerHTML = "";
+// }
+
+// function insertValidation() {
+//   if (selectedAns === correctAnswer) {
+//     var lineBreak = document.createElement("hr");
+//     var correct = document.createElement("p");
+//     correct.innerHTML = "Correct!";
+//     correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+//     correctInccorectAnsCheck.append(correct);
+//     seccondPhase.append(lineBreak);
+//     seccondPhase.append(correct);
+//   } else {
+//     var lineBreak = document.createElement("hr");
+//     var incorrect = document.createElement("p");
+//     incorrect.innerHTML = "Wrong!";
+//     correctInccorectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+//     correctInccorectAnsCheck.append(incorrect);
+//     seccondPhase.append(lineBreak);
+//     seccondPhase.append(incorrect);
+//   }
 // }
 
 // Event listener for the "Start Quiz" button
