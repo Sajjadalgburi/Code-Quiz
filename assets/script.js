@@ -21,14 +21,105 @@ let questionNumber = 0;
 
 const quizQuestions = [
   {
-    question: "This is Q one",
-    choices: ["1", "2", "3"],
-    answer: "2",
+    question: "What is DOM",
+    choices: [
+      "Document Object Model",
+      "Dynamic Operator Management",
+      "Cascading Style Sheets",
+      "Mono Object Manuplation",
+    ],
+    answer: "Document Object Model",
   },
   {
-    question: "This is Q 2 one",
-    choices: ["4", "5", "6"],
-    answer: "6",
+    question: "A function in JS always needs to do what?",
+    choices: [
+      "Check validation",
+      "execute the function",
+      "Carry out a function",
+      "Return something",
+    ],
+    answer: "Return something",
+  },
+  {
+    question: "Which company developed JavaScript?",
+    choices: ["Google", "Netscape", "Microsoft", "ME"],
+    answer: "Netscape",
+  },
+  {
+    question: "All these are variables in JS EXCEPT?",
+    choices: ["int", "const", "let", "var"],
+    answer: "int",
+  },
+  {
+    question: "What does the 'typeof' operator in JavaScript do?",
+    choices: [
+      "Returns the data type of a variable",
+      "Checks if a variable is defined",
+      "Concatenates two strings",
+      "Compares two values",
+    ],
+    answer: "Returns the data type of a variable",
+  },
+  {
+    question: "Which function is used to print output in the console?",
+    choices: ["print()", "log()", "display()", "output()"],
+    answer: "log()",
+  },
+  {
+    question: "What is the purpose of the 'parseInt()' function?",
+    choices: [
+      "Converts a string to an integer",
+      "Calculates the square root of a number",
+      "Concatenates two strings",
+      "Returns the length of a string",
+    ],
+    answer: "Converts a string to an integer",
+  },
+  {
+    question: "How do you declare a function in JavaScript?",
+    choices: [
+      "function myFunction()",
+      "var myFunction()",
+      "def myFunction()",
+      "void myFunction()",
+    ],
+    answer: "function myFunction()",
+  },
+  {
+    question: "What does the 'return' statement do in a function?",
+    choices: [
+      "Stops the execution of the function",
+      "Declares a variable",
+      "Specifies the data type of a variable",
+      "Specifies the value to be returned from the function",
+    ],
+    answer: "Specifies the value to be returned from the function",
+  },
+  {
+    question: "What is the purpose of the 'Array.map()' method?",
+    choices: [
+      "Filters elements in an array",
+      "Creates a new array with the results of calling a provided function on every element",
+      "Sorts the elements of an array",
+      "Adds new elements to an array",
+    ],
+    answer:
+      "Creates a new array with the results of calling a provided function on every element",
+  },
+  {
+    question: "Which statement is used to handle exceptions in JavaScript?",
+    choices: ["try", "catch", "finally", "all of the above"],
+    answer: "all of the above",
+  },
+  {
+    question: "What is the 'this' keyword in JavaScript?",
+    choices: [
+      "Refers to the current function",
+      "Refers to the global object",
+      "Refers to the object on which the method is invoked",
+      "Refers to a specific variable",
+    ],
+    answer: "Refers to the object on which the method is invoked",
   },
 ];
 
@@ -82,6 +173,7 @@ function displayPhase2() {
       if (selectedAns === correctAnswer) {
         alert("correct answer");
         questionNumber += 1;
+        score++;
         displayPhase2();
       } else {
         alert("inccorect");
