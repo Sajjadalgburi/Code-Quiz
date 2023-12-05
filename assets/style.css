@@ -108,7 +108,7 @@ body {
   margin-top: 1.8em;
   list-style-type: none;
   left: -10%;
-  width: 110px;
+  width: 180px;
 }
 
 .answerButtons button {
@@ -116,7 +116,7 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #2196f3;
+  background-color: black;
   color: var(--primary-color);
   font-size: 15px;
   cursor: pointer;
