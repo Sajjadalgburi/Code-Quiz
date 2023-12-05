@@ -3,7 +3,7 @@ const topBar = document.getElementById("topBar"); // Top bar element
 const mainContent = document.getElementById("mainContent"); // Main content element
 const startQuiz = document.getElementById("startQuiz"); // Start quiz button element
 const timerText = document.getElementById("timer"); // Timer text element
-const seccondPhase = document.getElementById("seccondPhase"); // Second phase element
+const secondPhase = document.getElementById("secondPhase"); // Second phase element
 const thirdPhase = document.getElementById("thirdPhase"); // Third phase element
 const questions = document.getElementById("answerButtons"); // Questions ul for the quiz
 const initialsInput = document.getElementById("initialsInput"); // Initials input element
@@ -128,7 +128,7 @@ const quizQuestions = [
 ];
 
 // Function to handle the countdown timer
-function countDown(duration) {
+function countDown(duration, onTimerEnd) {
   let timer = duration;
   countdown = setInterval(function () {
     timerText.textContent = timer; // Update the timer text content
@@ -138,14 +138,25 @@ function countDown(duration) {
     if (timer < 0) {
       clearInterval(countdown); // Stop the countdown interval
       timerText.textContent = "Time's up!"; // Display a message when time is up
+      if (onTimerEnd) {
+        onTimerEnd();
+      }
     }
   }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
+function handleWrongAnswer() {
+  timer -= 10; // Decrease the timer by 10 seconds
+  if (timer <= 0) {
+    clearInterval(countdown); // Stop the countdown interval
+    timerText.textContent = "Time's up!"; // Display a message when time is up
+  }
+}
+
 function displayPhase2() {
-  seccondPhase.innerHTML = "";
+  secondPhase.innerHTML = "";
   mainContent.setAttribute("style", "display: none;"); // Hide the main content
-  seccondPhase.setAttribute("style", "display: flex;"); // Display the second phase
+  secondPhase.setAttribute("style", "display: flex;"); // Display the second phase
 
   let h2El = document.createElement("h2"); // <h2></h2>
   // h2El.innerHTML = "Question 1"; // <h2>Question 1</h2>
@@ -173,10 +184,10 @@ function displayPhase2() {
         correct.innerHTML = "Correct!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(correct);
-        seccondPhase.append(lineBreak);
-        seccondPhase.append(correct);
-        questionNumber += 1;
+        secondPhase.append(lineBreak);
+        secondPhase.append(correct);
         score++;
+        questionNumber += 1;
         displayPhase2();
       } else {
         var lineBreak = document.createElement("hr");
@@ -184,8 +195,9 @@ function displayPhase2() {
         incorrect.innerHTML = "Wrong!";
         correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
         correctIncorrectAnsCheck.append(incorrect);
-        seccondPhase.append(lineBreak);
-        seccondPhase.append(incorrect);
+        secondPhase.append(lineBreak);
+        secondPhase.append(incorrect);
+        handleWrongAnswer();
         questionNumber += 1;
         displayPhase2();
       }
@@ -193,8 +205,8 @@ function displayPhase2() {
     div.append(button);
   }
 
-  seccondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
-  seccondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
+  secondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
+  secondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
 // function displayPhase3() {
@@ -224,7 +236,7 @@ function displayPhase2() {
 
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
-  countDown(75); // Start the timer with a duration of 75 seconds
-  displayPhase2(); // Display the second phase
-  displayPhase3();
+  countDown(75, handleWrongAnswer); // Pass the handleWrongAnswer callback
+  displayPhase2();
+  // displayPhase3(); // This function is commented out in your code
 });

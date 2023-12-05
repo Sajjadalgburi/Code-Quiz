@@ -87,7 +87,7 @@ body {
 /* Second Phase of the Website */
 
 /* Adjusting the center alignment for the second phase */
-.seccondPhase {
+.secondPhase {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +97,7 @@ body {
   color: var(--primary-color);
 }
 
-.seccondPhase h2 {
+.secondPhase h2 {
   text-align: center;
   font-size: 2em;
 }
@@ -203,6 +203,6 @@ body {
 /* Hide previous displays */
 .thirdPhase,
 .lastPhase,
-.seccondPhase {
+.secondPhase {
   display: none;
 }
