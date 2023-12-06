@@ -180,20 +180,27 @@ function displayPhase2() {
   for (let i = 0; i < choices.length; i++) {
     let button = document.createElement("button"); // <button></button>
     button.innerHTML = choices[i]; // <button>answer 1</button>
+
     button.addEventListener("click", function (event) {
       event.preventDefault();
       let selectedAns = event.target.innerHTML;
-      // if statment
       let correctAnswer = quizQuestions[questionNumber].answer;
+
       if (selectedAns === correctAnswer) {
-        secondPhase.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        secondPhase.append(lineBreak);
         secondPhase.append(correct);
+        console.log(lineBreak);
+        console.log(correct);
+
         score++;
         questionNumber += 1;
         displayPhase2();
       } else {
-        secondPhase.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        secondPhase.append(lineBreak);
         secondPhase.append(incorrect);
+        console.log(lineBreak);
+        console.log(incorrect);
+
         handleWrongAnswer();
         questionNumber += 1;
         displayPhase2();
