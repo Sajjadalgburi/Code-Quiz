@@ -206,6 +206,21 @@ function displayPhase2() {
   secondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
+// Hide Phase
+// display phase three
+// append the score into the span into #finalScore
+// get initials data from the input #initialsInput
+// save/store the users initials and score
+// phase four
+
+// phase four
+
+// hide phase three
+// display phase four
+// get date all from local storage (more than one user)
+// sort out the data from highest to lowest score
+// append the data in the phase four/view highscore section (highscore.html)
+
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
   timer = 75; // Initialize the timer before starting the countdown
