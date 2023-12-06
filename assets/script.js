@@ -213,12 +213,31 @@ function displayPhase2() {
   secondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
-// Hide Phase
+function displayPhase3() {
+  secondPhase.setAttribute("style", "display: none;"); // Display the second phase
+  thirdPhase.setAttribute("style", "display: flex;"); // Hide the main content
+  finalScore.append(score); // Append the score into the span into #finalScore
+
+  localStorage.setItem("finalScore", score);
+
+  submitInitials.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (!isNaN(initialsInput.value)) {
+      alert("Please enter a valid initials");
+    } else {
+      var initialsData = initialsInput.value; // storing the initials
+      console.log(initialsData);
+      localStorage.setItem("initials", initialsData); // storing the initials
+    }
+  });
+}
+
+// Hide Phase two
 // display phase three
 // append the score into the span into #finalScore
 // get initials data from the input #initialsInput
 // save/store the users initials and score
-// phase four
 
 // phase four
 
@@ -233,4 +252,5 @@ startQuiz.addEventListener("click", function () {
   timer = 75; // Initialize the timer before starting the countdown
   countDown(timer, handleWrongAnswer); // Pass the handleWrongAnswer callback
   displayPhase2();
+  displayPhase3();
 });
