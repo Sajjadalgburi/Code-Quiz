@@ -186,14 +186,14 @@ function displayPhase2() {
       // if statment
       let correctAnswer = quizQuestions[questionNumber].answer;
       if (selectedAns === correctAnswer) {
-        correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-        correctIncorrectAnsCheck.append(correct);
+        secondPhase.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        secondPhase.append(correct);
         score++;
         questionNumber += 1;
         displayPhase2();
       } else {
-        correctIncorrectAnsCheck.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
-        correctIncorrectAnsCheck.append(incorrect);
+        secondPhase.append(lineBreak); // <div id="correct-inccorectAnsCheck"><hr></div>
+        secondPhase.append(incorrect);
         handleWrongAnswer();
         questionNumber += 1;
         displayPhase2();
