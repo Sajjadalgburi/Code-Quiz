@@ -9,11 +9,12 @@ const questions = document.getElementById("answerButtons"); // Questions ul for 
 const initialsInput = document.getElementById("initialsInput"); // Initials input element
 const submitInitials = document.getElementById("submitInitials"); // Submit initial
 const goBack = document.getElementById("goBack"); // Go back button element
-const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
 const finalScore = document.getElementById("finalScore");
 const correctIncorrectAnsCheck = document.getElementById(
   "correct-incorrectAnsCheck"
 );
+const lastPhase = document.getElementById("lastPhase");
+const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
@@ -129,7 +130,8 @@ const quizQuestions = [
 ];
 
 // Function to handle the countdown timer
-function countDown(duration, onTimerEnd) {
+function countDown(duration) {
+  // pass info into the coutdown
   timer = duration; // Reference the global timer variable
   countdown = setInterval(function () {
     timerText.textContent = timer; // Update the timer text content
@@ -139,16 +141,14 @@ function countDown(duration, onTimerEnd) {
     if (timer < 0) {
       clearInterval(countdown); // Stop the countdown interval
       timerText.textContent = "Time's up!"; // Display a message when time is up
-      if (onTimerEnd) {
-        onTimerEnd();
-      }
+      displayPhase3();
     }
   }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
 function handleWrongAnswer() {
   timer -= 10; // Decrease the timer by 10 seconds
-  if (timer <= 0) {
+  if (timer < 0) {
     clearInterval(countdown); // Stop the countdown interval
     timerText.textContent = "Time's up!"; // Display a message when time is up
   }
@@ -172,10 +172,10 @@ function displayPhase2() {
   let lineBreak = document.createElement("hr");
 
   let correct = document.createElement("p");
-  correct.innerHTML = "Correct!";
+  correct.textContent = "Correct!";
 
   let incorrect = document.createElement("p");
-  incorrect.innerHTML = "Wrong!";
+  incorrect.textContent = "Wrong!";
 
   for (let i = 0; i < choices.length; i++) {
     let button = document.createElement("button"); // <button></button>
@@ -187,24 +187,26 @@ function displayPhase2() {
       let correctAnswer = quizQuestions[questionNumber].answer;
 
       if (selectedAns === correctAnswer) {
-        secondPhase.append(lineBreak);
-        secondPhase.append(correct);
-        console.log(lineBreak);
-        console.log(correct);
-
+        secondPhase.appendChild(lineBreak);
+        secondPhase.appendChild(correct);
         score++;
-        questionNumber += 1;
-        displayPhase2();
       } else {
-        secondPhase.append(lineBreak);
-        secondPhase.append(incorrect);
-        console.log(lineBreak);
-        console.log(incorrect);
-
+        secondPhase.appendChild(lineBreak);
+        secondPhase.appendChild(incorrect);
         handleWrongAnswer();
-        questionNumber += 1;
-        displayPhase2();
       }
+      setTimeout(function () {
+        if (quizQuestions.length - 1 === questionNumber) {
+          // i.e 6===6
+          // questionNumber is reffring to the index
+          // Array 0, 1, 2, 3, 4, 5 , 6, 7 -> length is 8 number of items
+          // index always starts at 0
+          displayPhase3();
+        } else {
+          questionNumber += 1;
+          displayPhase2();
+        }
+      }, 1000); // Update every 1000 milliseconds (1 second)
     });
     div.append(button);
   }
@@ -227,19 +229,16 @@ function displayPhase3() {
       alert("Please enter a valid initials");
     } else {
       var initialsData = initialsInput.value; // storing the initials
-      console.log(initialsData);
+      // console.log(initialsData);
       localStorage.setItem("initials", initialsData); // storing the initials
     }
   });
 }
 
-// Hide Phase two
-// display phase three
-// append the score into the span into #finalScore
-// get initials data from the input #initialsInput
-// save/store the users initials and score
-
-// phase four
+function displayPhase4() {
+  thirdPhase.setAttribute("style", "display: none;"); // Display the second phase
+  lastPhase.setAttribute("style", "display: block;"); // Hide the main content
+}
 
 // hide phase three
 // display phase four
@@ -249,8 +248,9 @@ function displayPhase3() {
 
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
-  timer = 75; // Initialize the timer before starting the countdown
-  countDown(timer, handleWrongAnswer); // Pass the handleWrongAnswer callback
+  timer = 5; // Initialize the timer before starting the countdown
+  countDown(timer); // Pass the handleWrongAnswer callback
   displayPhase2();
-  displayPhase3();
+  // displayPhase3();
+  // displayPhase4();
 });
