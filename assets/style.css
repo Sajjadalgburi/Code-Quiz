@@ -204,11 +204,19 @@ body {
   align-self: center;
 }
 
-.Highscores {
+.container {
   color: var(--primary-color);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-top: 100px;
+}
+
+.container P {
+  margin: auto;
+  max-width: 100px;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: black;
 }
 
 /* Hide previous displays */
