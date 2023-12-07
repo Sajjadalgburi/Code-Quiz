@@ -265,32 +265,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function highScore() {
-    var myAnchor = document.getElementById("myAnchor");
-
-    var retrievedInitials = localStorage.getItem("initials");
-    var retrievedScore = localStorage.getItem("finalScore");
-
-    myAnchor.addEventListener("click", function (event) {
-      // Prevent the default behavior of the anchor (e.g., navigating to a new page)
-      event.preventDefault();
-
-      // Your custom code here
-      alert("Anchor clicked!");
-      containerHighscore.setAttribute("style", "display: block;"); // Display the second phase
-    });
-
-    var appendHighscore = document.getElementById("appendHighscore");
-    var orderedListEl = document.createElement("ol");
-
-    for (let i = 0; i < 6; i++) {
-      var listItemEl = document.createElement("li");
-      orderedListEl.appendChild(listItemEl);
-    }
-
-    appendHighscore.appendChild(orderedListEl);
-  }
-
   // hide phase three
   // display phase four
   // get date all from local storage (more than one user)
@@ -298,13 +272,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // append the data in the phase four/view highscore section (highscore.html)
 
   // Event listener for the "Start Quiz" button
-  startQuiz.addEventListener("click", function (event) {
-    // Prevent the default behavior of the anchor (e.g., navigating to a new page)
-    event.preventDefault();
-    timer = 1; // Initialize the timer before starting the countdown
-    countDown(timer); // Pass the handleWrongAnswer callback
-    displayPhase2();
-  });
 
-  highScore();
+  function startGame() {
+    if (mainContent === mainContent) {
+      startQuiz.addEventListener("click", function (event) {
+        // Prevent the default behavior of the anchor (e.g., navigating to a new page)
+        event.preventDefault();
+        timer = 1; // Initialize the timer before starting the countdown
+        countDown(timer); // Pass the handleWrongAnswer callback
+        displayPhase2();
+      });
+    } else {
+      startQuiz.removeEventListener();
+    }
+  }
+
+  startGame();
 });
