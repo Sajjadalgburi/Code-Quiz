@@ -141,6 +141,7 @@ function countDown(duration) {
     if (timer < 0) {
       clearInterval(countdown); // Stop the countdown interval
       timerText.textContent = "Time's up!"; // Display a message when time is up
+      secondPhase.setAttribute("style", "display: none;"); // Display the second phase
       displayPhase3();
     }
   }, 1000); // Update every 1000 milliseconds (1 second)
@@ -151,6 +152,8 @@ function handleWrongAnswer() {
   if (timer < 0) {
     clearInterval(countdown); // Stop the countdown interval
     timerText.textContent = "Time's up!"; // Display a message when time is up
+    secondPhase.setAttribute("style", "display: none;"); // Display the second phase
+    displayPhase3();
   }
 }
 
@@ -197,16 +200,13 @@ function displayPhase2() {
       }
       setTimeout(function () {
         if (quizQuestions.length - 1 === questionNumber) {
-          // i.e 6===6
-          // questionNumber is reffring to the index
-          // Array 0, 1, 2, 3, 4, 5 , 6, 7 -> length is 8 number of items
-          // index always starts at 0
           displayPhase3();
+          secondPhase.setAttribute("style", "display: none;"); // Display the second phase
         } else {
           questionNumber += 1;
           displayPhase2();
         }
-      }, 1000); // Update every 1000 milliseconds (1 second)
+      }, 1100); // Update every 1000 milliseconds (1 second)
     });
     div.append(button);
   }
@@ -231,6 +231,7 @@ function displayPhase3() {
       var initialsData = initialsInput.value; // storing the initials
       // console.log(initialsData);
       localStorage.setItem("initials", initialsData); // storing the initials
+      displayPhase4();
     }
   });
 }
@@ -248,9 +249,7 @@ function displayPhase4() {
 
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
-  timer = 5; // Initialize the timer before starting the countdown
+  timer = 75; // Initialize the timer before starting the countdown
   countDown(timer); // Pass the handleWrongAnswer callback
   displayPhase2();
-  // displayPhase3();
-  // displayPhase4();
 });
