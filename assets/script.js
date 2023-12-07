@@ -252,8 +252,9 @@ document.addEventListener("DOMContentLoaded", function () {
     goBackBtn.addEventListener("click", function (event) {
       event.preventDefault();
 
-      thirdPhase.setAttribute("style", "display: flex;"); // Display the second phase
-      lastPhase.setAttribute("style", "display: none;"); // Hide the main content
+      mainContent.setAttribute("style", "display: flex;"); // Display the second phase
+
+      lastPhase.innerHTML = "";
     });
 
     clearHighscoreBtn.addEventListener("click", function (event) {
