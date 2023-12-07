@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
       startQuiz.addEventListener("click", function (event) {
         // Prevent the default behavior of the anchor (e.g., navigating to a new page)
         event.preventDefault();
-        timer = 5; // Initialize the timer before starting the countdown
+        timer = 75; // Initialize the timer before starting the countdown
         countDown(timer); // Pass the handleWrongAnswer callback
         displayPhase2();
       });
