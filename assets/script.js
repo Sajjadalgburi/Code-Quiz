@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayPhase2() {
     secondPhase.innerHTML = "";
     mainContent.setAttribute("style", "display: none;"); // Hide the main content
+    topBar.setAttribute("style", "display: flex;");
     secondPhase.setAttribute("style", "display: flex;"); // Display the second phase
 
     let h2El = document.createElement("h2"); // <h2></h2>
@@ -241,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayPhase4() {
+    topBar.setAttribute("style", "display: none;"); // Display the second phase
     thirdPhase.setAttribute("style", "display: none;"); // Display the second phase
     lastPhase.setAttribute("style", "display: block;"); // Hide the main content
 
@@ -252,9 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
     goBackBtn.addEventListener("click", function (event) {
       event.preventDefault();
 
-      mainContent.setAttribute("style", "display: flex;"); // Display the second phase
-
       lastPhase.innerHTML = "";
+      // topBar.setAttribute("style", "display: flex;");
+      mainContent.setAttribute("style", "display: flex;"); // Display the second phase
     });
 
     clearHighscoreBtn.addEventListener("click", function (event) {
