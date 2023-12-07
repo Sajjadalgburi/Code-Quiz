@@ -134,6 +134,10 @@ body {
   color: var(--primary-color);
 }
 
+#initialsInput {
+  text-transform: uppercase;
+}
+
 .thirdPhase h2 {
   text-align: center;
   font-size: 2.5em;
