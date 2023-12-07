@@ -8,13 +8,14 @@ const thirdPhase = document.getElementById("thirdPhase"); // Third phase element
 const questions = document.getElementById("answerButtons"); // Questions ul for the quiz
 const initialsInput = document.getElementById("initialsInput"); // Initials input element
 const submitInitials = document.getElementById("submitInitials"); // Submit initial
-const goBack = document.getElementById("goBack"); // Go back button element
+const goBackBtn = document.getElementById("goBack"); // Go back button element
 const finalScore = document.getElementById("finalScore");
 const correctIncorrectAnsCheck = document.getElementById(
   "correct-incorrectAnsCheck"
 );
 const lastPhase = document.getElementById("lastPhase");
-const clearHighscore = document.getElementById("clearHighscore"); // Clear highscore button element
+const clearHighscoreBtn = document.getElementById("clearHighscore"); // Clear highscore button element
+const inputElement = document.getElementById("myInput");
 
 let countdown; // Declare countdown variable globally for the timer
 var correctAnswer; // Declare correctAnswer variable globally to store correct answers
@@ -240,6 +241,26 @@ function displayPhase3() {
 function displayPhase4() {
   thirdPhase.setAttribute("style", "display: none;"); // Display the second phase
   lastPhase.setAttribute("style", "display: block;"); // Hide the main content
+
+  var retrievedInitials = localStorage.getItem("initials");
+  var retrievedScore = localStorage.getItem("finalScore");
+
+  inputElement.value = retrievedInitials + " - " + retrievedScore;
+
+  goBackBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    thirdPhase.setAttribute("style", "display: flex;"); // Display the second phase
+    lastPhase.setAttribute("style", "display: none;"); // Hide the main content
+  });
+
+  clearHighscoreBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    inputElement.value = "";
+    localStorage.removeItem("finalScore"); // Replace 'userData' with the key you use to store user data
+    localStorage.removeItem("initials"); // Replace 'userData' with the key you use to store user data
+  });
 }
 
 // hide phase three
