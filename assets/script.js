@@ -201,9 +201,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (quizQuestions.length - 1 === questionNumber) {
-          displayPhase3();
+          // secondPhase.innerHTML = "";
           secondPhase.setAttribute("style", "display: none;"); // Display the second phase
-        } else {
+
+          displayPhase3();
+        } else if (timer > 0) {
           setTimeout(function () {
             questionNumber += 1;
             displayPhase2();
@@ -265,20 +267,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // hide phase three
-  // display phase four
-  // get date all from local storage (more than one user)
-  // sort out the data from highest to lowest score
-  // append the data in the phase four/view highscore section (highscore.html)
-
-  // Event listener for the "Start Quiz" button
+  // once saved data
+  // clear out phase three and show phase 4
+  // show phase four
+  // get all data from local storage which is saved -> convert to array of objects [{}, {}, {}] using JSON.parse();
+  // dynamically create ul and li elements by looping through local storage data (initals, score)
 
   function startGame() {
     if (mainContent === mainContent) {
       startQuiz.addEventListener("click", function (event) {
         // Prevent the default behavior of the anchor (e.g., navigating to a new page)
         event.preventDefault();
-        timer = 1; // Initialize the timer before starting the countdown
+        timer = 5; // Initialize the timer before starting the countdown
         countDown(timer); // Pass the handleWrongAnswer callback
         displayPhase2();
       });
