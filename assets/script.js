@@ -198,20 +198,21 @@ function displayPhase2() {
         secondPhase.appendChild(incorrect);
         handleWrongAnswer();
       }
-      setTimeout(function () {
-        if (quizQuestions.length - 1 === questionNumber) {
-          displayPhase3();
-          secondPhase.setAttribute("style", "display: none;"); // Display the second phase
-        } else {
+
+      if (quizQuestions.length - 1 === questionNumber) {
+        displayPhase3();
+        secondPhase.setAttribute("style", "display: none;"); // Display the second phase
+      } else {
+        setTimeout(function () {
           questionNumber += 1;
           displayPhase2();
-        }
-      }, 1100); // Update every 1000 milliseconds (1 second)
+        }, 1100); // Update every 1000 milliseconds (1 second)
+      }
     });
     div.append(button);
   }
 
-  secondPhase.append(h2El); // <div id="seccondPhase" class="seccondPhase"> <h2>Question 1</h2> </div>
+  secondPhase.append(h2El); // <div id="secondPhase" class="secondPhase"> <h2>Question 1</h2> </div>
   secondPhase.append(div); // <div id="answerButtons" class="answerButtons"><button>answer 1</button> </div>;
 }
 
@@ -228,7 +229,7 @@ function displayPhase3() {
     if (!isNaN(initialsInput.value)) {
       alert("Please enter a valid initials");
     } else {
-      var initialsData = initialsInput.value; // storing the initials
+      var initialsData = initialsInput.value.toUpperCase(); // storing the initials
       // console.log(initialsData);
       localStorage.setItem("initials", initialsData); // storing the initials
       displayPhase4();
@@ -249,7 +250,7 @@ function displayPhase4() {
 
 // Event listener for the "Start Quiz" button
 startQuiz.addEventListener("click", function () {
-  timer = 75; // Initialize the timer before starting the countdown
+  timer = 1; // Initialize the timer before starting the countdown
   countDown(timer); // Pass the handleWrongAnswer callback
   displayPhase2();
 });
