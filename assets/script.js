@@ -242,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayPhase4() {
-    topBar.setAttribute("style", "display: none;"); // Display the second phase
     thirdPhase.setAttribute("style", "display: none;"); // Display the second phase
     lastPhase.setAttribute("style", "display: block;"); // Hide the main content
 
@@ -257,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lastPhase.innerHTML = "";
       // topBar.setAttribute("style", "display: flex;");
       mainContent.setAttribute("style", "display: flex;"); // Display the second phase
+      timerText.textContent = 0;
     });
 
     clearHighscoreBtn.addEventListener("click", function (event) {
