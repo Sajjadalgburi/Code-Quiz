@@ -191,7 +191,7 @@ body {
 }
 
 .lastPhase button {
-  width: 15%;
+  width: 20%;
   height: 30px;
   padding: 10px;
   border: none;
@@ -201,7 +201,6 @@ body {
   font-size: 15px;
   cursor: pointer;
   margin: 10px;
-  align-self: center;
 }
 
 .container {
