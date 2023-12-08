@@ -1,40 +1,31 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const container = document.getElementById("appendHighscore");
+// const appendHighscoreEl = document.getElementById("appendHighscore");
 
-//   // Retrieve existing high scores from local storage or initialize an empty array
-//   const existingHighScores =
-//     JSON.parse(localStorage.getItem("highScores")) || [];
+// // Step 1: Get data from local storage
+// const retrievedInitials = localStorage.getItem("initials");
+// const retrievedScore = localStorage.getItem("finalScore");
 
-//   // Retrieve the user's latest score from local storage
-//   const userScore = {
-//     initials: localStorage.getItem("initials") || "",
-//     score: parseInt(localStorage.getItem("finalScore")) || 0,
+// // Parse the retrieved data
+// const initialsArray = JSON.stringify(retrievedInitials);
+// const scoreArray = JSON.stringify(retrievedScore);
+
+// // Create an array of objects
+// const dataArray = [];
+
+// for (let i = 0; i < initialsArray.length; i++) {
+//   const dataObject = {
+//     initials: initialsArray[i],
+//     score: scoreArray[i],
 //   };
 
-//   // Check if the user has played (valid initials and score greater than 0)
-//   if (userScore.initials && userScore.score > 0) {
-//     // Check if the user's score is not already in the existing high scores
-//     const userAlreadyInHighScores = existingHighScores.some(
-//       (score) =>
-//         score.initials === userScore.initials && score.score === userScore.score
-//     );
+//   dataArray.push(dataObject);
+// }
 
-//     if (!userAlreadyInHighScores) {
-//       // Add the user's latest score to the existing high scores
-//       existingHighScores.push(userScore);
-//     }
-//   }
+// // Loop through the array of objects
+// dataArray.forEach((item) => {
+//   // Create a list item for each object
+//   const listItem = document.createElement("li");
+//   listItem.textContent = `${item.initials}: ${item.score}`;
 
-//   // Sort high scores in descending order based on the score
-//   existingHighScores.sort((a, b) => b.score - a.score);
-
-//   // Save the updated high scores back to local storage
-//   localStorage.setItem("highScores", JSON.stringify(existingHighScores));
-
-//   // Loop through the sorted high scores and append them to the container
-//   for (let i = 0; i < existingHighScores.length; i++) {
-//     let scoreItem = document.createElement("p");
-//     scoreItem.textContent = `${existingHighScores[i].initials} - ${existingHighScores[i].score}`;
-//     container.appendChild(scoreItem);
-//   }
+//   // Append the list item to a parent element (e.g., a <ul> element)
+//   appendHighscoreEl.appendChild(listItem);
 // });

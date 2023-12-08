@@ -277,17 +277,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // dynamically create ul and li elements by looping through local storage data (initals, score)
 
   function startGame() {
-    if (mainContent === mainContent) {
-      startQuiz.addEventListener("click", function (event) {
-        // Prevent the default behavior of the anchor (e.g., navigating to a new page)
-        event.preventDefault();
-        timer = 75; // Initialize the timer before starting the countdown
-        countDown(timer); // Pass the handleWrongAnswer callback
-        displayPhase2();
-      });
-    } else {
-      startQuiz.removeEventListener();
-    }
+    startQuiz.addEventListener("click", function (event) {
+      // Prevent the default behavior of the anchor (e.g., navigating to a new page)
+      event.preventDefault();
+
+      timer = 75; // Initialize the timer before starting the countdown
+      countDown(timer); // Pass the handleWrongAnswer callback
+      displayPhase2();
+    });
   }
 
   startGame();
